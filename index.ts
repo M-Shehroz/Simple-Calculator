@@ -3,16 +3,29 @@
 // install npm i @types/inquirer
 
 import inquirer from "inquirer";
-const input1 = await inquirer. prompt({
-    name: "num1",
-    type: "number",
-    message: "kindly enter your first no:"
-})
-const input2= await inquirer.prompt({
-    name: "num2",
-    type: "number",
-    message: "kidnly enter your second no:"
-})
-let total: number= input1.num1 + input2.num2
-console.log(total)
-// Home work slide 129 to 131
+
+async function startCalc() {
+    const answer = await inquirer.prompt([
+      { message: "Enter first number", type: "number", name: "firstNumber" },
+      { message: "Enter second number", type: "number", name: "secondNumber" },
+      {
+        message: "select one of the operator to perform operation",
+        type: "list",
+        name: "operator",
+        choices: ["Addition", "Subtraction", "Multiplication", "Division"],
+      },
+    ]);
+    if (answer.operator === "Addition") {
+      console.log(answer.firstNumber + answer.secondNumber);
+    } else if (answer.operator === "Subtraction") {
+      console.log(answer.firstNumber - answer.secondNumber);
+    } else if (answer.operator === "Multiplication") {
+      console.log(answer.firstNumber * answer.secondNumber);
+    } else if (answer.operator === "Division") {
+      console.log(answer.firstNumber / answer.secondNumber);
+    } else {
+      console.log("Please select value operator");
+    }
+  }
+  
+  startCalc()
