@@ -1,0 +1,11 @@
+Move to desired folder
+ 
+RUN npm init
+
+RUN tsc --init
+
+install inquirer, @types/inquirer
+
+CODE
+
+Have Fun....:-)
